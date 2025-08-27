@@ -1,4 +1,4 @@
-package org.slidingwindow;
+package org.slidingwindow.fixedsize;
 
 import java.util.*;
 

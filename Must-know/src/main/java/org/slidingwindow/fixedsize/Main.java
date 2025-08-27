@@ -1,4 +1,4 @@
-package org.slidingwindow;
+package org.slidingwindow.fixedsize;
 
 public class Main {
     public static void main(String[] args) {

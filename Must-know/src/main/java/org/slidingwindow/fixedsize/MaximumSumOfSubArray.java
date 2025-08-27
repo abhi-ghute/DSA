@@ -1,4 +1,4 @@
-package org.slidingwindow;
+package org.slidingwindow.fixedsize;
 
 public class MaximumSumOfSubArray {
 
@@ -16,3 +16,7 @@ public class MaximumSumOfSubArray {
         return maxSum;
     }
 }
+
+//same logic we can apply to calculate each window average we just need to calculate
+//avg after each window like
+//result.add(maxSum/k) this will calculate average for each window and remove max logic
