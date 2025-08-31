@@ -1,6 +1,7 @@
 package search.binary;
 
 //this used when array is sorted but we don't know the sorting order
+//Biotonic array + https://leetcode.com/problems/find-in-mountain-array/
 public class OrderAgnosticBinarySearch {
 
     public static void main(String[] args) {
@@ -23,6 +24,8 @@ public class OrderAgnosticBinarySearch {
         int start = 0;
         int end = arr.length - 1;
 
+        //this will decide array is sored in asc or desc
+        //as start in asc array will always less than end
         boolean isAsc = arr[start] < arr[end];
 
         while (start <= end) {
@@ -32,6 +35,7 @@ public class OrderAgnosticBinarySearch {
                 return mid;
             }
 
+            //this will determine to which sort need to apply
             if (isAsc) {
                 if (arr[mid] < target)
                     start = mid + 1;

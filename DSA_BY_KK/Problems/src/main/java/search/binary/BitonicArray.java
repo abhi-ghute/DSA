@@ -2,6 +2,7 @@ package search.binary;
 
 //https://leetcode.com/problems/peak-index-in-a-mountain-array/
 //https://leetcode.com/problems/find-peak-element/
+//https://leetcode.com/problems/find-in-mountain-array/ + orderAgnostic search
 
 //this is the array it will increase first and after peak it will start decreasing
 //it will not contain duplicate
@@ -11,6 +12,7 @@ public class BitonicArray {
         int[] nums = {0, 10, 5, 2};
 
         System.out.println(findPeakElement(nums));
+        System.out.println(isValidBitonic(nums));
     }
 
     // this is to search the element and this is for leetcode problems
@@ -18,6 +20,8 @@ public class BitonicArray {
         int start = 0;
         int end = nums.length - 1;
 
+        //we are not using equal as we are using mid+1
+        //so if start and end is at same then thats the peak.
         while (start < end) {
             int mid = start + (end - start) / 2;
 
