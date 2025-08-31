@@ -22,13 +22,20 @@ public class SortedRowsAndCoulmn {
         int col = nums.length - 1;
 
         while (row < nums.length && col >= 0) {
+
+            //num is same as target
             if (nums[row][col] == target) {
                 return new int[]{row, col};
             }
 
+            //it will reduce the number of rows and columns
             if (nums[row][col] < target) {
+                //it num is less than target then it should be in next row
+                //as all previous element in that row are less than number as row is sorted
                 row++;
             } else {
+                //it num is greater than target then it should not in that col
+                //as all next element in that col are greater than number as col is sorted
                 col--;
             }
         }

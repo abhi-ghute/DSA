@@ -26,8 +26,13 @@ public class SearchInStrightlySortedArray {
 
         while (low <= high) {
             int mid = low + (high - low) / 2;
+
+            //if mid = 5, which is 11 in matrix
+            //mid/cols =>provide row number, 5/4 => 1
+            //mid%cols =>provide col number, 5%4 => 1
             int midElement = matrix[mid / cols][mid % cols];
 
+            //this below logic is same as normal sorted binary search
             if (midElement == target) {
                 return new int[]{mid / cols, mid % cols};
             } else if (midElement < target) {
