@@ -65,8 +65,6 @@ public class RotatedSortedAWithoutDulpicate {
                 end = mid-1;
             }
         }
-
         return -1;
-
     }
 }

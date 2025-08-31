@@ -59,14 +59,14 @@ public class RotatedSortedAWithDulpicate {
             if (nums[start] == nums[mid] && nums[end] == nums[mid]) {
                 // Skip duplicates safely
                 //we are checking as start is greater than next then condition satisfied
-                if (start < end && nums[start] > nums[start + 1]){
+                if (start < end && nums[start] > nums[start + 1]) {
                     return start;
                 }
                 //to remove duplicate
                 start++;
 
                 //we are checking as previous is greater than end then condition satisfied
-                if (end > start && nums[end] < nums[end - 1]){
+                if (end > start && nums[end] < nums[end - 1]) {
                     return end - 1;
                 }
                 //to remove duplicate
@@ -87,8 +87,6 @@ public class RotatedSortedAWithDulpicate {
                 end = mid - 1;
             }
         }
-
         return -1;
-
     }
 }
