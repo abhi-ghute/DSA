@@ -24,8 +24,6 @@ public class SelectionSort {
     static void selectionSortWithMinApproach(int[] arr) {
 
         int n = arr.length;
-        if (n == 0)
-            return;
 
         //it will start from firs index and consider each i as min for each pass
         //after each iteration we will get ith in correct position, which is min from that iteration
@@ -54,8 +52,6 @@ public class SelectionSort {
     static void selectionSortWithMaxApproach(int[] arr) {
 
         int n = arr.length;
-        if (n == 0)
-            return;
 
         //it will start from last index and consider each i as max for each pass
         //after each iteration we will get ith in correct position, which is max from that iteration

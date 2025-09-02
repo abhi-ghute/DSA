@@ -16,9 +16,6 @@ public class BubbleSort {
         int n = arr.length;
         boolean swapped;
 
-        if (n==0)
-            return;
-
         // Outer loop for each pass
         for (int i = 0; i < n - 1; i++) {
             swapped = false;  // swap set to false for next pass
