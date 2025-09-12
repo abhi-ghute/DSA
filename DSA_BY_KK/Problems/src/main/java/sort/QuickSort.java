@@ -47,7 +47,7 @@ public class QuickSort {
         }
 
         // Recursively sort the left and right subarrays
-        quickSort(arr, low, end);   // Left half
-        quickSort(arr, start, high); // Right half
+        quickSort(arr, low, end);   // Left half as end is before pivot
+        quickSort(arr, start, high); // Right half as start is after pivot
     }
 }
