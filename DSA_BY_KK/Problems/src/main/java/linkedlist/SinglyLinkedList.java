@@ -4,6 +4,7 @@ public class SinglyLinkedList {
 
     private Node head;
     private Node tail;
+    private int size;
 
     private static class Node{
         int data;
@@ -12,6 +13,11 @@ public class SinglyLinkedList {
         Node(int data) {
             this.data = data;
             this.next = null;
+        }
+
+        Node(int data, Node next) {
+            this.data = data;
+            this.next = next;
         }
     }
 
@@ -23,6 +29,25 @@ public class SinglyLinkedList {
         if (tail == null){
             tail = node;
         }
+        size++;
+    }
+
+    public void add(int value, int position){
+        if(position == 0){
+            addFirst(value);
+            return;
+        }else if(position == size){
+            addLast(value);
+            return;
+        }
+
+        Node temp = head;
+        for (int i = 1; i < position; i++) {
+            temp = temp.next;
+        }
+        Node node = new Node(value,temp.next);
+        temp.next = node;
+        size++;
     }
 
     public void addLast(int value){
@@ -35,6 +60,57 @@ public class SinglyLinkedList {
         Node node = new Node(value);
         tail.next = node;
         tail = node;
+        size++;
+    }
+
+    public int deleteFirst(){
+        int value = head.data;
+        head = head.next;
+        if (head == null){
+            tail = null;
+        }
+        size--;
+        return value;
+    }
+
+    public int deleteLast(){
+        if(size == 1){
+            return deleteFirst();
+        }
+
+        Node secondLast = get(size-2);
+        int value = tail.data;
+        secondLast.next = null;
+        tail = secondLast;
+        size--;
+        return value;
+    }
+
+    public int delete(int position){
+        if(size == 0){
+            return deleteFirst();
+        }
+
+        if(position == size-1){
+            return deleteLast();
+        }
+
+        Node previous = get(position-1);
+        int value = previous.next.data;
+        Node deleteNode = previous.next;
+        previous.next = previous.next.next;
+        deleteNode.next = null;
+        size--;
+        return value;
+    }
+
+    public Node get(int position){
+        Node temp = head;
+
+        for(int i=0;i<position;i++){
+            temp = temp.next;
+        }
+        return temp;
     }
 
     public void display(){
