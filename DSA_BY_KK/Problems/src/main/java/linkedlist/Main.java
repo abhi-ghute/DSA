@@ -4,6 +4,7 @@ public class Main {
     public static void main(String[] args) {
 
         //Singly Linked List
+        System.out.println("Singly Linked List");
         SinglyLinkedList singlyLinkedList = new SinglyLinkedList();
 
         singlyLinkedList.addFirst(10);
@@ -23,5 +24,23 @@ public class Main {
         singlyLinkedList.display();
         System.out.println("Deleting 3rd index node: "+singlyLinkedList.delete(3));
         singlyLinkedList.display();
+
+        System.out.println("==================================================================");
+        System.out.println("Doubly Linked List");
+
+        DoublyLinkedList ddl = new DoublyLinkedList();
+
+        ddl.inserFirst(30);
+        ddl.inserFirst(20);
+        ddl.inserFirst(10);
+        ddl.inserLast(40);
+        ddl.inserLast(55);
+        ddl.inserLast(60);
+        ddl.insertAfter(40,50);
+        ddl.insertAfter(60,70);
+        ddl.insertBefore(70,65);
+        ddl.insertBefore(40,35);
+        ddl.display();
+
     }
 }
