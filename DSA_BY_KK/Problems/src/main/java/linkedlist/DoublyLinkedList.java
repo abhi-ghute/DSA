@@ -43,6 +43,10 @@ public class DoublyLinkedList {
         newNode.prev = node;
         node.next = newNode;
 
+        if(newNode.next == null){
+            tail = newNode;
+        }
+
     }
 
     public void insertBefore(int before, int value){
@@ -61,6 +65,50 @@ public class DoublyLinkedList {
         newNode.prev = node.prev;
         node.prev.next = newNode;  // Update the previous node's next reference
         node.prev = newNode;
+    }
+
+    public Integer deleteFirst(){
+        if(head == null){
+            System.out.println("LinkedList is empty");
+            return null;
+        }
+        int val = head.data;
+        head = head.next;
+        head.prev = null;
+        return  val;
+    }
+
+    public Integer deleteLast(){
+        if(tail == null){
+            System.out.println("LinkedList is empty");
+            return null;
+        }
+        int val = tail.data;
+        tail = tail.prev;
+        tail.next = null;
+        return  val;
+    }
+
+    public Integer delete(int value){
+        Node node = find(value);
+
+        if(node == null){
+            System.out.print("Element Node found ");
+            return value;
+        }
+
+        if(node.prev == null){
+           return deleteFirst();
+        }
+
+        if(node.next == null){
+            return deleteLast();
+        }
+
+        node.prev.next = node.next;
+        node.next.prev = node.prev;
+
+        return value;
     }
 
     private Node find(int value){
