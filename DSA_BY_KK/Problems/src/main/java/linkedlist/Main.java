@@ -30,12 +30,12 @@ public class Main {
 
         DoublyLinkedList dll = new DoublyLinkedList();
 
-        dll.inserFirst(30);
-        dll.inserFirst(20);
-        dll.inserFirst(10);
-        dll.inserLast(40);
-        dll.inserLast(55);
-        dll.inserLast(60);
+        dll.insertfirst(30);
+        dll.insertfirst(20);
+        dll.insertfirst(10);
+        dll.insertLast(40);
+        dll.insertLast(55);
+        dll.insertLast(60);
         dll.insertAfter(40,50);
         dll.insertAfter(60,70);
         dll.insertBefore(70,65);
@@ -47,6 +47,8 @@ public class Main {
         dll.display();
         System.out.println("Deleting 35 value node: "+ dll.delete(35));
         dll.display();
+        System.out.println("Display reverse: ");
+        dll.displayReverse();
 
         //Circular LinkedList
         System.out.println("Circular Linked List: ");

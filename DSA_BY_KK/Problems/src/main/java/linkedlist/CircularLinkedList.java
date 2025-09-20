@@ -46,7 +46,7 @@ public class CircularLinkedList {
     public void insertAfter(int after, int value){
         Node node = find(after);
         if (node == null){
-            System.out.println("No node present with value after");
+            System.out.println("No node found with value: " + after);
             return;
         }
 
@@ -102,7 +102,7 @@ public class CircularLinkedList {
 
         Node node = find(value);
         // Case 1: Only one node
-        if (node == head) {
+        if (head.data == value) {
             return deleteFirst();
         }
 

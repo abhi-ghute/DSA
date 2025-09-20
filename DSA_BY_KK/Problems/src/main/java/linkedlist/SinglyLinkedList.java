@@ -33,6 +33,10 @@ public class SinglyLinkedList {
     }
 
     public void add(int value, int position){
+        if (position < 0 || position > size) {
+            throw new IndexOutOfBoundsException("Invalid position: " + position);
+        }
+
         if(position == 0){
             addFirst(value);
             return;
@@ -64,6 +68,10 @@ public class SinglyLinkedList {
     }
 
     public int deleteFirst(){
+        if (size == 0) {
+            throw new IndexOutOfBoundsException("List is empty");
+        }
+
         int value = head.data;
         head = head.next;
         if (head == null){
@@ -87,7 +95,11 @@ public class SinglyLinkedList {
     }
 
     public int delete(int position){
-        if(size == 0){
+        if (position < 0 || position >= size) {
+            throw new IndexOutOfBoundsException("Invalid position: " + position);
+        }
+
+        if(size == 1){
             return deleteFirst();
         }
 
@@ -105,6 +117,11 @@ public class SinglyLinkedList {
     }
 
     public Node get(int position){
+
+        if (position < 0 || position >= size) {
+            throw new IndexOutOfBoundsException("Invalid position: " + position);
+        }
+
         Node temp = head;
 
         for(int i=0;i<position;i++){

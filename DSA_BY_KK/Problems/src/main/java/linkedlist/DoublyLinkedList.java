@@ -5,7 +5,7 @@ public class DoublyLinkedList {
     Node head;
     Node tail;
 
-    public void inserFirst(int value){
+    public void insertfirst(int value){
         Node node = new Node(value);
         if(head == null){
             head = node;
@@ -18,10 +18,10 @@ public class DoublyLinkedList {
         head = node;
     }
 
-    public void inserLast(int value){
+    public void insertLast(int value){
         Node node = new Node(value);
         if(head == null){
-            inserFirst(value);
+            insertfirst(value);
             return;
         }
 
@@ -59,7 +59,8 @@ public class DoublyLinkedList {
 
         Node newNode = new Node(value);
         if(node.prev == null){
-            inserFirst(value);
+            insertfirst(value);
+            return;
         }
         newNode.next = node;
         newNode.prev = node.prev;
@@ -73,9 +74,12 @@ public class DoublyLinkedList {
             return null;
         }
         int val = head.data;
-        head = head.next;
-        head.prev = null;
-        return  val;
+        if (head != null) {
+            head.prev = null;
+        } else {
+            tail = null; // list is now empty
+        }
+        return val;
     }
 
     public Integer deleteLast(){
@@ -85,8 +89,12 @@ public class DoublyLinkedList {
         }
         int val = tail.data;
         tail = tail.prev;
-        tail.next = null;
-        return  val;
+        if (tail != null) {
+            tail.next = null;
+        } else {
+            head = null; // list is now empty
+        }
+        return val;
     }
 
     public Integer delete(int value){
@@ -131,6 +139,15 @@ public class DoublyLinkedList {
             node = node.next;
         }
         System.out.println("END");
+    }
+
+    public void displayReverse() {
+        Node node = tail;
+        while (node != null) {
+            System.out.print(node.data + " <- ");
+            node = node.prev;
+        }
+        System.out.println("START");
     }
 
     private class Node{
