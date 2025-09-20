@@ -141,4 +141,49 @@ public class SinglyLinkedList {
 
     }
 
+    //------------------------Questions------------------------------
+    public void insertRecursively(int value, int index) {
+        if (index < 0) {
+            throw new IndexOutOfBoundsException("Invalid index");
+        }
+        head = insertRec(head, value, index);
+    }
+
+    private Node insertRec(Node current, int value, int index) {
+
+        if(index == 0){
+           Node node = new Node(value);
+           node.next = current;
+           size++;
+           if (node.next == null) {
+                tail = node;
+           }
+           return node;
+        }
+
+        if (current == null) {
+            throw new IndexOutOfBoundsException("Index out of bounds");
+        }
+        current.next = insertRec(current.next, value,index-1);
+        return current;
+    }
+
+    public void removeDuplcatesFromSorted(){
+        Node node = head;
+
+        if(node == null){
+            return;
+        }
+
+        while (node.next != null) {
+            if (node.data == node.next.data) {
+                // Skip the duplicate node
+                node.next = node.next.next;
+                size--;
+            } else {
+                node = node.next;
+            }
+        }
+        tail = node;
+    }
 }
